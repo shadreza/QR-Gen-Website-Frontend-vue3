@@ -4,18 +4,24 @@
             <span class="collapse-icon" @click="toggleSideBar()"
             :class="{ 'rotate-180': !isSidebarCollapsed }"> ⇝ </span>
         </div>
-        <div class="options" @click="optionClicked('home')" id="home">
-            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-home.gif" alt="Home"/>
-            <span v-if="!isSidebarCollapsed" class="option-text">Home</span>
-        </div>
-        <div class="options" @click="optionClicked('about')" id="about">
-            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-info.gif" alt="About"/>
-            <span v-if="!isSidebarCollapsed" class="option-text">About</span>
-        </div>
-        <div class="options" @click="optionClicked('profile')" id="profile">
-            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-people.gif" alt="Profile"/>
-            <span v-if="!isSidebarCollapsed" class="option-text">Profile</span>
-        </div>
+            <router-link style="text-decoration: none; color: inherit;" to="/">
+                <div class="options" @click="optionClicked('home')" id="home">
+                    <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-home.gif" alt="Home"/>
+                    <span v-if="!isSidebarCollapsed" class="option-text">Home</span>
+                </div>
+            </router-link>
+            <router-link style="text-decoration: none; color: inherit;" to="/about">
+                <div class="options" @click="optionClicked('about')" id="about">
+                    <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-info.gif" alt="About"/>
+                    <span v-if="!isSidebarCollapsed" class="option-text">About</span>
+                </div>
+            </router-link>
+            <router-link style="text-decoration: none; color: inherit;" to="/">
+                <div class="options" @click="optionClicked('profile')" id="profile">
+                    <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-people.gif" alt="Profile"/>
+                    <span v-if="!isSidebarCollapsed" class="option-text">Profile</span>
+                </div>
+            </router-link>
     </div>
 </template>
 
@@ -54,9 +60,7 @@
 
 <style>
 :root {
-    --sidebar-bg-color: #00ADB5;
-    --sidebar-item-hover: #38a169;
-    --sidebar-item-active: #276749;
+    --sidebar-bg-color: #40DFEF;
 }
 </style>
 
@@ -106,7 +110,7 @@
         transition: 0.4s linear;
     }
     .navIcons:hover {
-        border: 4px solid #FF5F00;
+        border: 4px solid #E78EA9;
         transition: 0.2s linear;
     }
     .extendedNavIcons {
@@ -124,7 +128,7 @@
         color: #fff;
     }
     .options:hover{
-        background: #B5FE83;
+        background: #FFFBE7;
         border-radius: 30px;
         padding: 0;
         color: #000;
@@ -136,8 +140,16 @@
     }
 
     .active {
-        border: 4px solid sandybrown;
+        border: 4px solid #E78EA9;
         border-radius: 30px;
+        background: #B9F8D3;
+        border-radius: 30px;
+        padding: 0;
+        color: #000;
+    }
+
+    router-link {
+        text-decoration: none;
     }
 
 </style>

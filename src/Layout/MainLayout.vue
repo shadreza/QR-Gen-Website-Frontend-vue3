@@ -1,7 +1,7 @@
 <template>
     <div>
         <SideNavBar />
-        <router-view :style="{marginLeft : `${extendedSidebarWidth}px`}" />
+        <router-view class="changingSize" :style="{marginLeft : `${extendedSidebarWidth}px`}" />
     </div>
 </template>
 
@@ -22,5 +22,7 @@
 </script>
 
 <style scoped>
-
+    .changingSize {
+        transition: 0.4s ease-in-out;
+    }
 </style>
