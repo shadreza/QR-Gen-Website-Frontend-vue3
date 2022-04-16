@@ -4,16 +4,16 @@
             <span class="collapse-icon" @click="toggleSideBar()"
             :class="{ 'rotate-180': !isSidebarCollapsed }"> ⇝ </span>
         </div>
-        <div class="options">
+        <div class="options" @click="optionClicked('home')" id="home">
             <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-home.gif" alt="Home"/>
             <span v-if="!isSidebarCollapsed" class="option-text">Home</span>
         </div>
-        <div class="options">
+        <div class="options" @click="optionClicked('about')" id="about">
             <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-info.gif" alt="About"/>
             <span v-if="!isSidebarCollapsed" class="option-text">About</span>
         </div>
-        <div class="options">
-            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-people.gif" alt="Home"/>
+        <div class="options" @click="optionClicked('profile')" id="profile">
+            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-people.gif" alt="Profile"/>
             <span v-if="!isSidebarCollapsed" class="option-text">Profile</span>
         </div>
     </div>
@@ -26,12 +26,27 @@
     export default {
         name : 'SideNavBar',
 
+        data() {
+            return {
+                selectedOption : 'home',
+            }   
+        },
+
         computed : {
             ...mapState(["sidebarWidth", "isSidebarCollapsed"])
         },
 
+        mounted () {
+            document.getElementById(this.selectedOption).classList.add('active')
+        },
+
         methods : {
-            ...mapMutations(["toggleSideBar"])
+            ...mapMutations(["toggleSideBar"]),
+            optionClicked(id) {
+                document.getElementById(this.selectedOption).classList.remove('active')
+                this.selectedOption = id
+                document.getElementById(id).classList.add('active')
+            }
         },
 
     }
@@ -118,6 +133,11 @@
     .option-text {
         font-weight: 700;
         transition: 0.3s ease-in;
+    }
+
+    .active {
+        border: 4px solid sandybrown;
+        border-radius: 30px;
     }
 
 </style>
