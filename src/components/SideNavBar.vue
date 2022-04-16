@@ -2,7 +2,19 @@
     <div class="sidebar" :style="{width : `${sidebarWidth}px`}">
         <div class="togglerKey">
             <span class="collapse-icon" @click="toggleSideBar()"
-            :class="{ 'rotate-180': !sidebarCollapsed }"> ⤇ </span>
+            :class="{ 'rotate-180': !isSidebarCollapsed }"> ⇝ </span>
+        </div>
+        <div class="options">
+            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-home.gif" alt="Home"/>
+            <span v-if="!isSidebarCollapsed" class="option-text">Home</span>
+        </div>
+        <div class="options">
+            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-info.gif" alt="About"/>
+            <span v-if="!isSidebarCollapsed" class="option-text">About</span>
+        </div>
+        <div class="options">
+            <img class="navIcons" :class="{ 'extendedNavIcons': !isSidebarCollapsed }" src="../assets/icons8-people.gif" alt="Home"/>
+            <span v-if="!isSidebarCollapsed" class="option-text">Profile</span>
         </div>
     </div>
 </template>
@@ -15,7 +27,7 @@
         name : 'SideNavBar',
 
         computed : {
-            ...mapState(["sidebarWidth", "sidebarCollapsed"])
+            ...mapState(["sidebarWidth", "isSidebarCollapsed"])
         },
 
         methods : {
@@ -55,7 +67,7 @@
     .collapse-icon {
         position: absolute;
         bottom: 0;
-        padding: 0.75rem;
+        padding: 0.5rem;
         font-size: 1.75rem;
         font-weight: 900;
         cursor: pointer;
@@ -70,4 +82,42 @@
         transition: 0.2s linear;
         margin-left: 30%;
     }
+
+    .navIcons {
+        border-radius: 100%;
+        cursor: pointer;
+        width: 100%;
+        max-width: 50px;
+        transition: 0.4s linear;
+    }
+    .navIcons:hover {
+        border: 4px solid #FF5F00;
+        transition: 0.2s linear;
+    }
+    .extendedNavIcons {
+        margin: 10px;
+        transition: 0.1s linear;
+    }
+
+    .options {
+        width: 100%;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+        color: #fff;
+    }
+    .options:hover{
+        background: #B5FE83;
+        border-radius: 30px;
+        padding: 0;
+        color: #000;
+    }
+
+    .option-text {
+        font-weight: 700;
+        transition: 0.3s ease-in;
+    }
+
 </style>
