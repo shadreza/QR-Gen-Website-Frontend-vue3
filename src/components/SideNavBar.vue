@@ -110,7 +110,7 @@
         transition: 0.4s linear;
     }
     .navIcons:hover {
-        border: 4px solid #E78EA9;
+        width: 120%;
         transition: 0.2s linear;
     }
     .extendedNavIcons {
@@ -141,7 +141,6 @@
 
     .active {
         border: 4px solid #E78EA9;
-        border-radius: 30px;
         background: #B9F8D3;
         border-radius: 30px;
         padding: 0;
