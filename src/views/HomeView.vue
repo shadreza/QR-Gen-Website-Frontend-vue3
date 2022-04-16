@@ -1,15 +1,21 @@
 <template>
     <div>
-        Home here
+        hi
     </div>
 </template>
 
 <script>
+
+    
+
     export default {
-        name : 'HomeView'
+        name : 'HomeView',
+        
     }
 </script>
 
 <style scoped>
-
+    div {
+        color: aliceblue;
+    }
 </style>

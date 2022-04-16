@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <NavBar />
-    <router-view/>
+    <MainLayout />
   </div>
 </template>
 
 <script>
 
-  import NavBar from './components/NavBar'
+  import MainLayout from './Layout/MainLayout.vue'
 
   export default {
     name: 'App',
     components: {
-      NavBar,
+      MainLayout
     }
   }
 </script>
